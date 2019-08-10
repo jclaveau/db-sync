@@ -60,11 +60,6 @@ class DbSync {
 
         $primaryKey = $source->getPrimaryKey();
 
-        if(!$primaryKey)
-        {
-            throw new \RuntimeException("The table $source does not have a primary key");
-        }
-
         $syncConfig or $syncConfig = new ColumnConfiguration([], []);
         $compareConfig or $compareConfig = new ColumnConfiguration([], []);
 

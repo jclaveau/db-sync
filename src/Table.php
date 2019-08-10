@@ -113,8 +113,13 @@ class Table {
      */
     public function getKeyAtPosition(array $lastKey, $position)
     {
+        if(!$primaryKey = $this->getPrimaryKey())
+        {
+            return null;
+        }
+        
         $query = $this->query()
-            ->select($this->getPrimaryKey())
+            ->select($primaryKey)
             ->offset($position)
             ->limit(1);
 
